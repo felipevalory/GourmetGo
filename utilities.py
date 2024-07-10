@@ -381,7 +381,7 @@ def rest_by_city(df1):
     }
 
     fig = px.bar(df_aux, x='City', y='Restaurant ID',
-                 title='Top 10 Cities with more restaurants',
+                 title='Top 10 Cities with the most restaurants',
                  color='Country Name',
                  color_discrete_map=color_discrete_map,
                  text='Restaurant ID')
@@ -401,10 +401,10 @@ def rest_by_city(df1):
 def city_rest_rating(df1, best_worst):
 
     if best_worst == 'worst':
-        rating = 'worst'
+        rating = 'lowest'
         linhas = df1['Aggregate rating'] <= 2.5
     elif best_worst == 'best':
-        rating = 'best'
+        rating = 'highly'
         linhas = df1['Aggregate rating'] >= 4
 
     df_aux = (df1.loc[linhas, ['City', 'Restaurant ID', 'Country Name']]
@@ -432,7 +432,7 @@ def city_rest_rating(df1, best_worst):
     }
 
     fig = px.bar(df_aux, x='City', y='Restaurant ID',
-                 title=f'Top 5 Cities with {rating} rating restaurants',
+                 title=f'Top 5 Cities with {rating}-rated restaurants',
                  color='Country Name',
                  color_discrete_map=color_discrete_map,
                  text='Restaurant ID')
