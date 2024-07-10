@@ -477,7 +477,7 @@ def cuisine_per_city(df1):
     }
 
     fig = px.bar(df_aux, x='City', y='Cuisines',
-                 title='Top 10 cities with the most distinct cuisine types',
+                 title='Top 10 cities with the most diverse cuisine types',
                  color='Country Name',
                  color_discrete_map=color_discrete_map,
                  text='Cuisines')
